@@ -24,7 +24,7 @@ class HomeSecreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TitleHomeWidget(),
+                    TitleHomeWidget(), //
                     SearchWidget(),
                     NotesListWidget(),
                   ],
