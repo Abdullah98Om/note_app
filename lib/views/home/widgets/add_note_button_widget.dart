@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:note_app/core/routers/routers_name.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import '../../../core/locale/languages/lanuage_keys.dart';
 
 class AddNoteButtonWidget extends StatelessWidget {
-  const AddNoteButtonWidget({
-    super.key,
-  });
+  const AddNoteButtonWidget({super.key, required this.icon, this.onTap});
+
+  final IconData icon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,13 @@ class AddNoteButtonWidget extends StatelessWidget {
           ? null
           : context.responsive(mobile: 20),
       child: InkWell(
-        onTap: () {
-          Get.toNamed(RoutesName.plus);
-        },
+        onTap: onTap,
         child: Container(
             height: context.responsiveHeight(mobile: 80),
             width: context.responsiveWidth(mobile: 80),
             decoration: const BoxDecoration(
                 color: Color(0xff5F5AC9), shape: BoxShape.circle),
-            child: Icon(Icons.add,
+            child: Icon(icon,
                 color: Colors.white, size: context.responsive(mobile: 38))),
       ),
     );
