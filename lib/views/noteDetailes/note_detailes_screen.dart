@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:note_app/core/locale/languages/lanuage_keys.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import '../../core/widgets/float_action_button_widget.dart';
 import 'widgets/app_bar_note_screen_widget.dart';
@@ -19,7 +18,9 @@ class NoteDetailesScreen extends StatelessWidget {
       floatingActionButton: FloatActionButtonWidget(
           icon: Icons.color_lens,
           onTap: () {
-            Get.bottomSheet(const BottomSheetWidget());
+            Get.bottomSheet(
+              const BottomSheetWidget(),
+            );
           }),
       appBar: const AppBarNoteScreenWidget(),
       body: Stack(
@@ -30,6 +31,7 @@ class NoteDetailesScreen extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 8),
                 DateWidget(),
                 TitleNoteWidget(),
                 DescriptionNoteWidget(),

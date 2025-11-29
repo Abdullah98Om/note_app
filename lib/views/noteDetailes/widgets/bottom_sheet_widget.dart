@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
-
-import '../../../core/theme/app_color.dart';
+import 'package:note_app/core/utility/constant.dart';
 import 'font_style_widget.dart';
 
 class BottomSheetWidget extends StatelessWidget {
@@ -16,18 +15,24 @@ class BottomSheetWidget extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color:
-            Get.isDarkMode ? const Color(0xff272727) : AppColor.grayLightColor,
+            Get.isDarkMode ? const Color(0xff272727) : const Color(0xffF3F3F3),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
       ),
       child: ListView(
         children: [
-          SizedBox(height: context.responsiveHeight(mobile: 32)),
+          Image.asset(
+            AppImage.bottomIcon,
+            width: context.responsiveWidth(mobile: 48),
+            height: context.responsiveWidth(mobile: 48),
+          ),
+
           // Align && Size Font
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Align
-              Expanded(
+              Flexible(
+                flex: 1,
                 child: Container(
                   padding: EdgeInsets.only(
                       right: context.responsiveWidth(mobile: 16)),
@@ -40,35 +45,20 @@ class BottomSheetWidget extends StatelessWidget {
                       // align
                       InkWell(
                         onTap: () {},
-                        child: Icon(
-                          Icons.align_horizontal_left,
-                          color: Get.isDarkMode
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.secondary,
-                          size: context.responsive(mobile: 36),
-                        ),
+                        child: Image.asset(AppImage.menuIcon,
+                            width: 36, height: 36),
                       ),
 
                       // space
                       InkWell(
                         onTap: () {},
-                        child: Icon(
-                          Icons.format_line_spacing_outlined,
-                          color: Get.isDarkMode
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.secondary,
-                          size: context.responsive(mobile: 36),
-                        ),
+                        child: Image.asset(AppImage.lineSpacingIcon,
+                            width: 36, height: 36),
                       ),
                       InkWell(
                         onTap: () {},
-                        child: Icon(
-                          Icons.format_line_spacing_rounded,
-                          color: Get.isDarkMode
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.secondary,
-                          size: context.responsive(mobile: 36),
-                        ),
+                        child: Image.asset(AppImage.lineSpacingIcon,
+                            width: 36, height: 36),
                       ),
                     ],
                   ),
@@ -76,7 +66,8 @@ class BottomSheetWidget extends StatelessWidget {
               ),
 
               // Size Text
-              Expanded(
+              Flexible(
+                flex: 1,
                 child: Container(
                   padding: EdgeInsets.only(
                       left: context.responsiveWidth(mobile: 16)),
@@ -145,6 +136,16 @@ class BottomSheetWidget extends StatelessWidget {
                     width: context.responsiveWidth(mobile: 50),
                     height: context.responsiveWidth(mobile: 50),
                     decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.white),
+                  ),
+                ),
+                // Color
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: context.responsiveWidth(mobile: 50),
+                    height: context.responsiveWidth(mobile: 50),
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Colors.blue),
                   ),
                 ),
@@ -175,7 +176,7 @@ class BottomSheetWidget extends StatelessWidget {
                     width: context.responsiveWidth(mobile: 50),
                     height: context.responsiveWidth(mobile: 50),
                     decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.purple),
+                        shape: BoxShape.circle, color: Colors.yellow),
                   ),
                 ),
                 // Color
@@ -186,16 +187,6 @@ class BottomSheetWidget extends StatelessWidget {
                     height: context.responsiveWidth(mobile: 50),
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Colors.pink),
-                  ),
-                ),
-                // Color
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    width: context.responsiveWidth(mobile: 50),
-                    height: context.responsiveWidth(mobile: 50),
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.yellow),
                   ),
                 ),
               ],
@@ -211,7 +202,7 @@ class BottomSheetWidget extends StatelessWidget {
               FontStyleWidget(name: "Italian", bold: false, italic: true),
             ],
           ),
-          SizedBox(height: context.responsiveHeight(mobile: 8)),
+          SizedBox(height: context.responsiveHeight(mobile: 12)),
           // fonts
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -227,6 +218,24 @@ class BottomSheetWidget extends StatelessWidget {
               FontStyleWidget(
                   name: "tajawal",
                   fontFamily: GoogleFonts.tajawal(
+                      fontSize: 20, fontWeight: FontWeight.w400)),
+            ],
+          ),
+          SizedBox(height: context.responsiveHeight(mobile: 12)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FontStyleWidget(
+                  name: "aBeeZee",
+                  fontFamily: GoogleFonts.aBeeZee(
+                      fontSize: 20, fontWeight: FontWeight.w400)),
+              FontStyleWidget(
+                  name: "abel",
+                  fontFamily: GoogleFonts.abel(
+                      fontSize: 20, fontWeight: FontWeight.w400)),
+              FontStyleWidget(
+                  name: "Aboreto",
+                  fontFamily: GoogleFonts.aboreto(
                       fontSize: 20, fontWeight: FontWeight.w400)),
             ],
           ),
