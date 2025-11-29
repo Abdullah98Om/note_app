@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:note_app/core/theme/app_color.dart';
+import 'package:note_app/core/locale/languages/lanuage_keys.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
-
+import '../../core/widgets/float_action_button_widget.dart';
 import 'widgets/app_bar_note_screen_widget.dart';
+import 'widgets/bottom_sheet_widget.dart';
+import 'widgets/date_widget.dart';
+import 'widgets/description_note_widget.dart';
+import 'widgets/title_note_widget.dart';
+import 'widgets/save_button_widget.dart';
 
 class NoteDetailesScreen extends StatelessWidget {
   const NoteDetailesScreen({super.key});
@@ -11,64 +16,27 @@ class NoteDetailesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatActionButtonWidget(
+          icon: Icons.color_lens,
+          onTap: () {
+            Get.bottomSheet(const BottomSheetWidget());
+          }),
       appBar: const AppBarNoteScreenWidget(),
-      body: Column(
+      body: Stack(
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: context.responsiveWidth(mobile: 20)),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Date
-                Row(
-                  children: [
-                    Text(
-                      "28 May, 2023",
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .primary
-                              .withOpacity(0.5),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_down_outlined,
-                      size: context.responsive(mobile: 30),
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withOpacity(0.5),
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: context.responsiveHeight(mobile: 16)),
-                  child: Text(
-                    "28 May, 2023",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: context.responsiveHeight(mobile: 8)),
-                  child: Text(
-                    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate ",
-                    style: TextStyle(
-                        color: Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565),
-                        fontSize: context.responsive(mobile: 20),
-                        height: 27 / 20,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
+                DateWidget(),
+                TitleNoteWidget(),
+                DescriptionNoteWidget(),
               ],
             ),
           ),
+          const SaveButtonWidget()
         ],
       ),
     );

@@ -13,4 +13,7 @@ Do you Want??''',
   'privateNotes': 'Private Notes',
   'notes': 'Notes',
   'task': 'Task',
+  'enterNote': 'Enter Your Note.',
+  'enterTitleNote': 'Enter Your Title Note.',
+  "save": "Save",
 };

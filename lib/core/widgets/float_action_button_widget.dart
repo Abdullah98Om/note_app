@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
-import '../../../core/locale/languages/lanuage_keys.dart';
+import '../locale/languages/lanuage_keys.dart';
 
-class AddNoteButtonWidget extends StatelessWidget {
-  const AddNoteButtonWidget({super.key, required this.icon, this.onTap});
+class FloatActionButtonWidget extends StatelessWidget {
+  const FloatActionButtonWidget({super.key, required this.icon, this.onTap});
 
   final IconData icon;
   final void Function()? onTap;

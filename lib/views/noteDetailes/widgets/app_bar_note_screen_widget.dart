@@ -26,23 +26,17 @@ class AppBarNoteScreenWidget extends StatelessWidget
               horizontal: context.responsiveWidth(mobile: 16)),
           child: Row(
             children: [
-              Icon(
-                Icons.person_add_alt_1_outlined,
-                size: context.responsive(mobile: 30),
-                color: const Color(0xff8F8F8F),
-              ),
-              SizedBox(width: context.responsiveWidth(mobile: 8)),
-              Icon(
-                Icons.pentagon_outlined,
-                size: context.responsive(mobile: 30),
-                color: const Color(0xff8F8F8F),
-              ),
-              SizedBox(width: context.responsiveWidth(mobile: 8)),
-              Icon(
-                Icons.more_horiz_outlined,
-                size: context.responsive(mobile: 40),
-                color: const Color(0xff8F8F8F),
-              ),
+              Icon(Icons.person_add_alt_1_outlined,
+                  size: context.responsive(mobile: 30),
+                  color: const Color(0xff8F8F8F)),
+              SizedBox(width: context.responsiveWidth(mobile: 24)),
+              Icon(Icons.pentagon_outlined,
+                  size: context.responsive(mobile: 30),
+                  color: const Color(0xff8F8F8F)),
+              SizedBox(width: context.responsiveWidth(mobile: 24)),
+              Icon(Icons.more_horiz_outlined,
+                  size: context.responsive(mobile: 40),
+                  color: const Color(0xff8F8F8F)),
             ],
           ),
         )

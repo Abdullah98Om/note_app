@@ -13,4 +13,7 @@ Map<String, String> ar = {
   'privateNotes': 'ملاحظات خاصة',
   'notes': 'ملاحظات',
   'task': 'مهمة',
+  'enterNote': 'أكتب ملاحظتك.',
+  'enterTitleNote': 'أكتب عنوان ملاحظتك.',
+  "save": "حفظ",
 };
