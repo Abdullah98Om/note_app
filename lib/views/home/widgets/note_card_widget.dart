@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
+import 'package:note_app/core/utility/my_date_format.dart';
+import 'package:note_app/viewmodels/notes_view_model.dart';
 
 import '../../../core/locale/languages/lanuage_keys.dart';
 import '../../../core/routers/routers_name.dart';
 import '../../../core/theme/app_color.dart';
 import '../../../core/utility/constant.dart';
+import '../../../models/note_model.dart';
 
 class NoteCardWidget extends StatelessWidget {
-  const NoteCardWidget(
-      {super.key,
-      required this.title,
-      required this.description,
-      required this.time});
-  final String title, description, time;
+  const NoteCardWidget({super.key, required this.note, required this.index});
+  final NoteModel note;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    final NotesViewModel notesViewModel = Get.find<NotesViewModel>();
     return InkWell(
       onTap: () {
+        notesViewModel.setNote(index, notesViewModel.notes[index]);
         Get.toNamed(RoutesName.notesInner);
       },
       child: Container(
@@ -56,7 +58,7 @@ class NoteCardWidget extends StatelessWidget {
                           shape: BoxShape.circle),
                     ),
                     Text(
-                      time,
+                      myDateFormat(note.dateTime!),
                       style: TextStyle(
                           color: Theme.of(context)
                               .colorScheme
@@ -72,7 +74,7 @@ class NoteCardWidget extends StatelessWidget {
             ),
             SizedBox(height: context.responsiveHeight(mobile: 0)),
             Text(
-              title,
+              note.title,
               style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.w500,
@@ -80,7 +82,7 @@ class NoteCardWidget extends StatelessWidget {
             ),
             SizedBox(height: context.responsiveHeight(mobile: 10)),
             Text(
-              description,
+              note.content,
               style: TextStyle(
                   color: Get.isDarkMode
                       ? AppColor.grayTextColor
@@ -92,37 +94,45 @@ class NoteCardWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
-                  textDirection:
-                      Get.locale!.languageCode == AppLanguageKey.arabic
-                          ? TextDirection.rtl
-                          : TextDirection.ltr,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          right:
-                              Get.locale?.languageCode == AppLanguageKey.arabic
+                Builder(builder: (context) {
+                  String t = myTimeAgo(note.dateTime!);
+                  return Row(
+                    textDirection:
+                        Get.locale!.languageCode == AppLanguageKey.arabic
+                            ? TextDirection.rtl
+                            : TextDirection.ltr,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (t == "now".tr)
+                        Container(
+                          margin: EdgeInsets.only(
+                              right: Get.locale?.languageCode ==
+                                      AppLanguageKey.arabic
                                   ? 0
                                   : context.responsive(mobile: 6),
-                          left:
-                              Get.locale?.languageCode == AppLanguageKey.english
+                              left: Get.locale?.languageCode ==
+                                      AppLanguageKey.english
                                   ? 0
                                   : context.responsive(mobile: 6)),
-                      height: context.responsiveWidth(mobile: 10),
-                      width: context.responsiveWidth(mobile: 10),
-                      decoration: const BoxDecoration(
-                          color: AppColor.color1, shape: BoxShape.circle),
-                    ),
-                    Text(
-                      "now".tr,
-                      style: TextStyle(
-                          color: AppColor.color1,
-                          fontWeight: FontWeight.w400,
-                          fontSize: context.responsive(mobile: 16)),
-                    ),
-                  ],
-                ),
+                          height: context.responsiveWidth(mobile: 10),
+                          width: context.responsiveWidth(mobile: 10),
+                          decoration: const BoxDecoration(
+                              color: AppColor.color1, shape: BoxShape.circle),
+                        ),
+                      Text(
+                        t, //"now".tr,
+                        style: TextStyle(
+                            color: t == "now".tr
+                                ? AppColor.color1
+                                : Get.isDarkMode
+                                    ? const Color(0xffffffff)
+                                    : AppColor.grayTextColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: context.responsive(mobile: 16)),
+                      ),
+                    ],
+                  );
+                }),
               ],
             ),
           ],

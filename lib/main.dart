@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialBinding: Binding(),
+        initialBinding: MyBinding(),
         locale: currentLang,
         translations: MyLocale(),
         textDirection: (currentLang.languageCode == AppLanguageKey.arabic)

@@ -1,8 +1,16 @@
 import 'package:get/get.dart';
 
-class Binding extends Bindings {
+import '../../services/notes_services.dart';
+import '../../viewmodels/notes_view_model.dart';
+
+class MyBinding extends Bindings {
   @override
   void dependencies() {
-    // Get.lazyPut(() => HomeViewModel(), fenix: true);
+    // حقن الخدمة
+    // Get.lazyPut<SharedService>(() => SharedService());
+    Get.lazyPut<NotesServices>(() => NotesServices());
+
+    // حقن controllers
+    Get.lazyPut(() => NotesViewModel(Get.find()), fenix: true);
   }
 }

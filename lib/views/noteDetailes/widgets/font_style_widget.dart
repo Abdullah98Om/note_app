@@ -21,7 +21,7 @@ class FontStyleWidget extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: context.responsiveHeight(mobile: 57),
-        width: context.responsiveWidth(mobile: 118),
+        width: context.responsiveWidth(mobile: 116),
         decoration: BoxDecoration(
             borderRadius: BorderRadiusDirectional.circular(12),
             color: Color(Get.isDarkMode ? 0xff1F1F1F : 0xffffffff)),
