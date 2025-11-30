@@ -54,6 +54,8 @@ class AppBarNoteScreenWidget extends StatelessWidget
                           name: "delete".tr,
                           color: Theme.of(context).colorScheme.error,
                           onTap: () {
+                            Get.back();
+                            Get.back();
                             notesViewModel.deleteNote();
                           },
                         ),

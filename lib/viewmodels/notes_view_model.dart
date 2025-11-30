@@ -49,5 +49,12 @@ class NotesViewModel extends GetxController {
     }
   }
 
-  deleteNote() {}
+  deleteNote() {
+    if (selectedIndex != null) {
+      notes.removeAt(selectedIndex!);
+      List<NoteModel> newNotes = notes;
+      update();
+      _notesServices.deleteNote(newNotes.reversed.toList());
+    }
+  }
 }

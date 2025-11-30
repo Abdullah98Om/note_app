@@ -12,12 +12,12 @@ class NotesServices {
     return l.map((e) => NoteModel.fromJson(jsonDecode(e))).toList();
   }
 
+  // Create New Note
   bool addNewNote(NoteModel note) {
     try {
       List<NoteModel> list = loadNotes();
       list.add(note);
 
-      // نحول كل Note إلى JSON String
       List<String> saveList = list.map((n) => jsonEncode(n.toJson())).toList();
       SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
 
@@ -25,5 +25,11 @@ class NotesServices {
     } catch (ex) {
       return false;
     }
+  }
+
+  // Delete  Note
+  deleteNote(List<NoteModel> list) {
+    List<String> saveList = list.map((n) => jsonEncode(n.toJson())).toList();
+    SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
   }
 }
