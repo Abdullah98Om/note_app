@@ -15,17 +15,29 @@ class NotesListWidget extends StatelessWidget {
     return Column(
       children: [
         GetBuilder<NotesViewModel>(builder: (controller) {
-          return ListView.builder(
-            itemCount: controller.notes.length,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) => NoteCardWidget(
-              note: controller.notes[index], //"28 May",
-              // "Task Management App Ui Design",
-              index: index,
-              // "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used.",
-            ),
-          );
+          return controller.notes.isNotEmpty
+              ? ListView.builder(
+                  itemCount: controller.notes.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => NoteCardWidget(
+                    note: controller.notes[index], //"28 May",
+                    // "Task Management App Ui Design",
+                    index: index,
+                    // "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used.",
+                  ),
+                )
+              : SizedBox(
+                  height: context.screenHeight * 0.5,
+                  child: Center(
+                    child: Text(
+                      "empty".tr,
+                      style: TextStyle(
+                          fontSize: context.responsive(mobile: 20),
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
+                  ),
+                );
         }),
         SizedBox(height: context.responsiveHeight(mobile: 110)),
       ],

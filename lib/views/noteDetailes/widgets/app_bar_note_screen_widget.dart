@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/request/request.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import 'package:note_app/core/widgets/my_buttont.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_app/core/routers/routers_name.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
+import 'package:note_app/core/utility/enums.dart';
 import 'package:note_app/viewmodels/notes_view_model.dart';
 
 import '../../../core/widgets/my_buttont.dart';
@@ -32,8 +33,14 @@ class NotesAndTaskButtonsWidget extends StatelessWidget {
               notesViewModel.setNote(
                   null,
                   NoteModel(
-                      title: "", content: "", options: OptionNoteModel()));
-
+                      title: "",
+                      content: "",
+                      options: OptionNoteModel(
+                        align: NoteAlign.ltr.name,
+                        bold: false,
+                        italic: false,
+                      )));
+              notesViewModel.updateNote = false;
               Get.toNamed(RoutesName.noteDetailes);
             },
           )),

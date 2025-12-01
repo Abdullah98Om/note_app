@@ -20,6 +20,7 @@ class NoteDetailesScreen extends StatelessWidget {
           onTap: () {
             Get.bottomSheet(
               const BottomSheetWidget(),
+              barrierColor: Colors.transparent, // يجعل الخلفية واضحة بدون تعتيم
             );
           }),
       appBar: const AppBarNoteScreenWidget(),

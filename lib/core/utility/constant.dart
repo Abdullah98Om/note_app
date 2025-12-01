@@ -9,6 +9,7 @@ class AppImage {
   static String lockIcon = "assets/icons/lock.png";
   static String shareIcon = "assets/icons/share.png";
   static String drawerIcon = "assets/icons/drawer.png";
+  static String drawerDarkIcon = "assets/icons/drawer1.png";
   static String bottomIcon = "assets/icons/bottom_icon.png";
   static String menuIcon = "assets/icons/menu.png";
   static String lineSpacingIcon = "assets/icons/line_spacing.png";

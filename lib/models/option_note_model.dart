@@ -24,6 +24,26 @@ class OptionNoteModel {
     );
   }
 
+  OptionNoteModel copyWith({
+    String? color,
+    String? align,
+    String? size,
+    String? font,
+    bool? bold,
+    bool? underLine,
+    bool? italic,
+  }) {
+    return OptionNoteModel(
+      color: color ?? this.color,
+      align: align ?? this.align,
+      size: size ?? this.size,
+      font: font ?? this.font,
+      bold: bold ?? this.bold,
+      underLine: underLine ?? this.underLine,
+      italic: italic ?? this.italic,
+    );
+  }
+
   Map<String, dynamic> toJson() => {
         "color": color,
         "align": align,

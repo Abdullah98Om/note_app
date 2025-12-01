@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
+import 'package:note_app/core/utility/constant.dart';
 
 class ButtomNavBarWidget extends StatelessWidget {
   const ButtomNavBarWidget({super.key});
@@ -21,10 +23,11 @@ class ButtomNavBarWidget extends StatelessWidget {
                 onTap: () {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Icon(
-                  Icons.list_outlined,
-                  size: context.responsive(mobile: 30),
-                  color: Theme.of(context).colorScheme.primary,
+                child: Image.asset(
+                  Get.isDarkMode
+                      ? AppImage.drawerDarkIcon
+                      : AppImage.drawerIcon,
+                  width: context.responsiveWidth(mobile: 30),
                 ),
               ),
             ],

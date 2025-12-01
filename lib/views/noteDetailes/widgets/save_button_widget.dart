@@ -18,7 +18,9 @@ class SaveButtonWidget extends StatelessWidget {
             child: MyButtont(
               name: "save".tr,
               onTap: () {
-                notesViewModel.addNewNote();
+                notesViewModel.updateNote
+                    ? notesViewModel.updateMyNote()
+                    : notesViewModel.addNewNote();
               },
             )));
   }

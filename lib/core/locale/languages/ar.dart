@@ -26,4 +26,5 @@ Map<String, String> ar = {
   'delete': 'حذف',
   'deleteMessage': 'هل أنت متأكد من الحذف؟',
   'cansle': 'رجوع',
+  "empty": "قائمة الملاحظات فارغة",
 };

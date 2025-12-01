@@ -27,6 +27,18 @@ class NotesServices {
     }
   }
 
+  // Update  Note
+  bool updateMyNote(List<NoteModel> notes) {
+    try {
+      List<String> saveList = notes.map((n) => jsonEncode(n.toJson())).toList();
+      SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
+
+      return true;
+    } catch (ex) {
+      return false;
+    }
+  }
+
   // Delete  Note
   deleteNote(List<NoteModel> list) {
     List<String> saveList = list.map((n) => jsonEncode(n.toJson())).toList();

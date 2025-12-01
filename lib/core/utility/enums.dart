@@ -1,4 +1,4 @@
-enum NoteAlign { ltr, center, rtl }
+enum NoteAlign { ltr, rtl }
 
 enum NoteSize { h1, h2, h3 }
 

@@ -26,4 +26,5 @@ Do you Want??''',
   'delete': 'Delete',
   'deleteMessage': 'Are you sure about deleting it ?',
   'cansle': 'Cansle',
+  "empty": "Empty Notes",
 };

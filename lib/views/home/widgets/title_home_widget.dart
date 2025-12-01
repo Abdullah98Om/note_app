@@ -16,21 +16,12 @@ class TitleHomeWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("home_title".tr,
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: context.responsive(mobile: 50),
-                        fontWeight: FontWeight.w500)),
-                Text("app_name".tr,
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: context.responsive(mobile: 50),
-                        fontWeight: FontWeight.w500)),
-              ],
-            ),
+            Text('${"home_title".tr}\n${"app_name".tr}',
+                style: TextStyle(
+                    height: 61 / 50,
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: context.responsive(mobile: 50),
+                    fontWeight: FontWeight.w500)),
             Row(
               children: [
                 InkWell(
@@ -55,6 +46,7 @@ class TitleHomeWidget extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: context.responsiveHeight(mobile: 16)),
       ],
     );
   }
