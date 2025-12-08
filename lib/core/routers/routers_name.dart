@@ -3,4 +3,5 @@ class RoutesName {
   static const String plus = '/plus';
   static const String notesInner = '/notesInner';
   static const String noteDetailes = '/noteDetailes';
+  static const String bettarPlayerPage = '/bettarPlayerPage';
 }

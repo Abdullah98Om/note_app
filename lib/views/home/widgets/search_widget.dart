@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/locale/languages/lanuage_keys.dart';
+import '../../../core/locale/languages/language_keys.dart';
 import '../../../core/widgets/my_text_form_field.dart';
 
 class SearchWidget extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:note_app/core/storage/shared_service.dart';
 import 'package:note_app/core/storage/storage_keys.dart';
 import 'package:note_app/models/note_model.dart';
@@ -22,7 +23,9 @@ class NotesServices {
       SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
 
       return true;
-    } catch (ex) {
+    } catch (ex, stackTrace) {
+      debugPrint('Error adding note: $ex');
+      debugPrint('Stack trace: $stackTrace');
       return false;
     }
   }
@@ -34,7 +37,10 @@ class NotesServices {
       SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
 
       return true;
-    } catch (ex) {
+    } catch (ex, stackTrace) {
+      debugPrint('Error Update note: $ex');
+      debugPrint('Stack trace: $stackTrace');
+
       return false;
     }
   }

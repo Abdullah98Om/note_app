@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import 'package:note_app/viewmodels/notes_view_model.dart';
 
-import '../../../core/locale/languages/lanuage_keys.dart';
+import '../../../core/locale/languages/language_keys.dart';
 
 class TitleNoteWidget extends StatelessWidget {
   const TitleNoteWidget({

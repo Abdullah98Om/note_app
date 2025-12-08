@@ -18,7 +18,7 @@ class NotesViewModel extends GetxController {
   }
 
   // get all Notes
-  loadNotes() {
+  void loadNotes() {
     notes = [];
     notes = _notesServices.loadNotes().reversed.toList();
     update();
@@ -61,14 +61,14 @@ class NotesViewModel extends GetxController {
     }
   }
 
-  setNote(int? index, NoteModel newNote) {
+  void setNote(int? index, NoteModel newNote) {
     note = newNote;
     selectedIndex = index;
   }
 
   bool updateNote = false;
   // Create New Note
-  addNewNote() {
+  void addNewNote() {
     if (note == null) return;
     if (note!.title.isEmpty) {
       Get.snackbar("titleNote".tr, "enterTitleNote".tr);
@@ -87,7 +87,7 @@ class NotesViewModel extends GetxController {
     }
   }
 
-  updateMyNote() {
+  void updateMyNote() {
     if (note == null || selectedIndex == null) return;
     if (note!.title.isEmpty) {
       Get.snackbar("titleNote".tr, "enterTitleNote".tr);
@@ -108,12 +108,11 @@ class NotesViewModel extends GetxController {
     }
   }
 
-  deleteNote() {
+  void deleteNote() {
     if (selectedIndex != null) {
       notes.removeAt(selectedIndex!);
-      List<NoteModel> newNotes = notes;
       update();
-      _notesServices.deleteNote(newNotes.reversed.toList());
+      _notesServices.deleteNote(notes.reversed.toList());
     }
   }
 }

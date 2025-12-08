@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import 'package:note_app/core/utility/constant.dart';
 
-class ButtomNavBarWidget extends StatelessWidget {
-  const ButtomNavBarWidget({super.key});
+class BottomNavBarWidget extends StatelessWidget {
+  const BottomNavBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

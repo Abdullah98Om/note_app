@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
-import '../locale/languages/lanuage_keys.dart';
+import '../locale/languages/language_keys.dart';
 
 class FloatActionButtonWidget extends StatelessWidget {
   const FloatActionButtonWidget({super.key, required this.icon, this.onTap});

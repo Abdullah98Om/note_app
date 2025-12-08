@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 
-import '../../../core/locale/languages/lanuage_keys.dart';
+import '../../../core/locale/languages/language_keys.dart';
 import '../../../core/utility/enums.dart';
 import '../../../models/note_model.dart';
 import '../../../viewmodels/notes_view_model.dart';

@@ -4,7 +4,7 @@ import 'package:note_app/core/utility/app_responsive.dart';
 import '../../core/routers/routers_name.dart';
 import '../../models/note_model.dart';
 import '../../viewmodels/notes_view_model.dart';
-import '../noteDetailes/widgets/app_bar_note_screen_widget.dart';
+import '../noteDetails/widgets/app_bar_note_screen_widget.dart';
 import 'widgets/date_title_widget.dart';
 import 'widgets/description_widget.dart';
 import 'widgets/title_widget.dart';
@@ -21,7 +21,7 @@ class NotesInnerScreen extends StatelessWidget {
       body: InkWell(
         onTap: () {
           controller.updateNote = true;
-          Get.offNamed(RoutesName.noteDetailes);
+          Get.toNamed(RoutesName.noteDetailes);
         },
         child: Column(
           children: [

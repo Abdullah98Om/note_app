@@ -9,49 +9,93 @@ class SharedService {
 
   static Future<void> writeString(
       {required String key, required dynamic value}) async {
-    await _storage!.setString(key, value);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.setString(key, value);
   }
 
   static Future<void> writeBool(
       {required String key, required dynamic value}) async {
-    await _storage?.setBool(key, value);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.setBool(key, value);
   }
 
   static Future<void> writeInt(
       {required String key, required dynamic value}) async {
-    await _storage?.setInt(key, value);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.setInt(key, value);
   }
 
   static Future<void> writeStringList(
       {required String key, required dynamic value}) async {
-    await _storage?.setStringList(key, value);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.setStringList(key, value);
   }
 
   static String? readString(String key) {
-    return _storage?.getString(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    return storage.getString(key);
   }
 
   static bool? readBool(String key) {
-    return _storage?.getBool(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    return storage.getBool(key);
   }
 
   static double? readDouble(String key) {
-    return _storage?.getDouble(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    return storage.getDouble(key);
   }
 
   static int? readInt(String key) {
-    return _storage?.getInt(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    return storage.getInt(key);
   }
 
   static List<String>? readStringList(String key) {
-    return _storage?.getStringList(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    return storage.getStringList(key);
   }
 
   static Future<void> deleteKey(String key) async {
-    await _storage!.remove(key);
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.remove(key);
   }
 
   static Future<void> clear() async {
-    await _storage?.clear();
+    final storage = _storage;
+    if (storage == null) {
+      throw StateError('SharedService not initialized. Call init() first.');
+    }
+    await storage.clear();
   }
 }

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:note_app/core/locale/languages/ar.dart';
 import 'package:note_app/core/locale/languages/en.dart';
-import 'package:note_app/core/locale/languages/lanuage_keys.dart';
+import 'package:note_app/core/locale/languages/language_keys.dart';
 
 class MyLocale implements Translations {
   @override

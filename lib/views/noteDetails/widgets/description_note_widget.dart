@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import 'package:note_app/core/utility/enums.dart';
 
-import '../../../core/locale/languages/lanuage_keys.dart';
+import '../../../core/locale/languages/language_keys.dart';
 import '../../../viewmodels/notes_view_model.dart';
 
 class DescriptionNoteWidget extends StatelessWidget {
@@ -16,6 +16,7 @@ class DescriptionNoteWidget extends StatelessWidget {
         child: GetBuilder<NotesViewModel>(builder: (controller) {
           return controller.note != null
               ? TextFormField(
+                  autofocus: true,
                   initialValue: controller.note!.content,
                   // "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate ",
                   maxLines: 10,

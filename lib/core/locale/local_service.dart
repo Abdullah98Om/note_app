@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../storage/shared_service.dart';
-import 'languages/lanuage_keys.dart';
+import 'languages/language_keys.dart';
 import '../storage/storage_keys.dart';
 
 class LocalService {

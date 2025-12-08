@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:note_app/core/locale/languages/lanuage_keys.dart';
+import 'package:note_app/core/locale/languages/language_keys.dart';
 import 'core/locale/local_service.dart';
 import 'core/locale/locale.dart';
 import 'core/routers/routers_name.dart';
@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: currentTheme,
-        initialRoute: RoutesName.home,
+        initialRoute: RoutesName.bettarPlayerPage,
+        // RoutesName.home,
         getPages: AppRoutes.routes,
       );
     });

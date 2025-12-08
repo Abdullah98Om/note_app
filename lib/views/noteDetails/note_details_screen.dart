@@ -9,8 +9,8 @@ import 'widgets/description_note_widget.dart';
 import 'widgets/title_note_widget.dart';
 import 'widgets/save_button_widget.dart';
 
-class NoteDetailesScreen extends StatelessWidget {
-  const NoteDetailesScreen({super.key});
+class NoteDetailsScreen extends StatelessWidget {
+  const NoteDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,13 +3,13 @@ import 'package:get/get.dart';
 import 'package:note_app/core/utility/app_responsive.dart';
 import '../../core/routers/routers_name.dart';
 import '../../core/widgets/float_action_button_widget.dart';
-import 'widgets/buttom_nav_bar_widget.dart';
+import 'widgets/bottom_nav_bar_widget.dart';
 import 'widgets/notes_list_widget.dart';
 import 'widgets/search_widget.dart';
 import 'widgets/title_home_widget.dart';
 
-class HomeSecreen extends StatelessWidget {
-  const HomeSecreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class HomeSecreen extends StatelessWidget {
                 ),
               ),
             ),
-            const ButtomNavBarWidget(),
+            const BottomNavBarWidget(),
             FloatActionButtonWidget(
                 icon: Icons.add,
                 onTap: () {
