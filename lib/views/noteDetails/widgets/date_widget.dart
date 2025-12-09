@@ -18,15 +18,18 @@ class DateWidget extends StatelessWidget {
                   ? myDateFormat(controller.note!.dateTime!)
                   : myDateFormat(DateTime.now()),
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+                color: Theme.of(
+                  context,
+                ).colorScheme.primary.withValues(alpha: 0.5),
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           Icon(
             Icons.keyboard_arrow_down_outlined,
             size: context.responsive(mobile: 30),
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-          )
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+          ),
         ],
       ),
     );

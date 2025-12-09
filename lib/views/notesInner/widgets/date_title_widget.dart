@@ -17,15 +17,16 @@ class DateTitleWidget extends StatelessWidget {
           myDateFormat(note!.dateTime!),
           // "28 May, 2023 inner",
           style: TextStyle(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-              fontSize: 20,
-              fontWeight: FontWeight.w400),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+          ),
         ),
         Icon(
           Icons.keyboard_arrow_down_outlined,
           size: context.responsive(mobile: 30),
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-        )
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+        ),
       ],
     );
   }

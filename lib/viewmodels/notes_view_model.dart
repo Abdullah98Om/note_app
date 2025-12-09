@@ -28,19 +28,16 @@ class NotesViewModel extends GetxController {
   int? selectedIndex;
 
   List<String> colors = [
-    Colors.white.value.toString(),
-    const Color(0xff386DF6).value.toString(),
-    const Color(0xffEB6338).value.toString(),
-    const Color(0xff4FB49C).value.toString(),
-    const Color(0xffE6E762).value.toString(),
-    const Color(0xffE74AC5).value.toString(),
+    Colors.white.toARGB32().toString(),
+    const Color(0xff386DF6).toARGB32().toString(),
+    const Color(0xffEB6338).toARGB32().toString(),
+    const Color(0xff4FB49C).toARGB32().toString(),
+    const Color(0xffE6E762).toARGB32().toString(),
+    const Color(0xffE74AC5).toARGB32().toString(),
   ];
 
   int? alignsSelect;
-  List<String> aligns = [
-    NoteAlign.ltr.name,
-    NoteAlign.rtl.name,
-  ];
+  List<String> aligns = [NoteAlign.ltr.name, NoteAlign.rtl.name];
 
   TextStyle getFontFamily(String? fontName, TextStyle baseStyle) {
     switch (fontName) {
@@ -109,10 +106,9 @@ class NotesViewModel extends GetxController {
   }
 
   void deleteNote() {
-    if (selectedIndex != null) {
-      notes.removeAt(selectedIndex!);
-      update();
-      _notesServices.deleteNote(notes.reversed.toList());
-    }
+    if (selectedIndex == null) return;
+    notes.removeAt(selectedIndex!);
+    update();
+    _notesServices.deleteNote(notes.reversed.toList());
   }
 }

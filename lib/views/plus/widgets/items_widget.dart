@@ -6,17 +6,16 @@ import 'item_widget.dart';
 import 'notes_and_task_buttons_widget.dart';
 
 class ItemsWidget extends StatelessWidget {
-  const ItemsWidget({
-    super.key,
-  });
+  const ItemsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: context.responsiveHeight(mobile: 32)),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(11),
-          color: Theme.of(context).colorScheme.surface),
+        borderRadius: BorderRadius.circular(11),
+        color: Theme.of(context).colorScheme.surface,
+      ),
       child: Column(
         children: [
           Padding(
@@ -28,18 +27,20 @@ class ItemsWidget extends StatelessWidget {
                 ItemWidget(title: "attachFile".tr, image: AppImage.fileIcon),
                 ItemWidget(title: "audioFile".tr, image: AppImage.micIcon),
                 ItemWidget(
-                    title: "privateNotes".tr,
-                    image: AppImage.lockIcon,
-                    padding: 0)
+                  title: "privateNotes".tr,
+                  image: AppImage.lockIcon,
+                  padding: 0,
+                ),
               ],
             ),
           ),
           Divider(
-              height: context.responsiveHeight(mobile: 2),
-              color: Get.isDarkMode
-                  ? const Color(0xff383854).withOpacity(0.33)
-                  : Colors.white),
-          const NotesAndTaskButtonsWidget()
+            height: context.responsiveHeight(mobile: 2),
+            color: Get.isDarkMode
+                ? const Color(0xff383854).withValues(alpha: 0.33)
+                : Colors.white,
+          ),
+          const NotesAndTaskButtonsWidget(),
         ],
       ),
     );

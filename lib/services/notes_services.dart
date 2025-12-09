@@ -46,7 +46,7 @@ class NotesServices {
   }
 
   // Delete  Note
-  deleteNote(List<NoteModel> list) {
+  void deleteNote(List<NoteModel> list) {
     List<String> saveList = list.map((n) => jsonEncode(n.toJson())).toList();
     SharedService.writeStringList(key: AppStorageKey.notes, value: saveList);
   }

@@ -12,8 +12,9 @@ class DescriptionNoteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: context.responsiveHeight(mobile: 0)),
-        child: GetBuilder<NotesViewModel>(builder: (controller) {
+      padding: EdgeInsets.only(top: context.responsiveHeight(mobile: 0)),
+      child: GetBuilder<NotesViewModel>(
+        builder: (controller) {
           return controller.note != null
               ? TextFormField(
                   autofocus: true,
@@ -23,61 +24,67 @@ class DescriptionNoteWidget extends StatelessWidget {
                   cursorColor: Theme.of(context).colorScheme.secondary,
                   textDirection: controller.note!.options.align != null
                       ? controller.note!.options.align == NoteAlign.ltr.name
-                          ? TextDirection.ltr
-                          : TextDirection.rtl
+                            ? TextDirection.ltr
+                            : TextDirection.rtl
                       : Get.locale!.languageCode == AppLanguageKey.arabic
-                          ? TextDirection.rtl
-                          : TextDirection.ltr,
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                   style: controller.getFontFamily(
                     controller.note!.options.font,
                     TextStyle(
-                        fontStyle: controller.note!.options.italic == null
-                            ? FontStyle.normal
-                            : controller.note!.options.italic!
-                                ? FontStyle.italic
-                                : FontStyle.normal,
-                        decorationColor: controller.note!.options.color != null
-                            ? Color(int.parse(controller.note!.options.color!))
-                            : Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565),
-                        decoration: controller.note!.options.underLine == null
-                            ? TextDecoration.none
-                            : controller.note!.options.underLine!
-                                ? TextDecoration.underline
-                                : TextDecoration.none,
-                        color: controller.note!.options.color != null
-                            ? Color(int.parse(controller.note!.options.color!))
-                            : Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565),
-                        fontSize: context.responsive(
-                            mobile: controller.note!.options.size == null
-                                ? 20
-                                : double.parse(controller.note!.options.size!)),
-                        height: 27 / 20,
-                        fontWeight: controller.note!.options.bold != null
-                            ? controller.note!.options.bold!
+                      fontStyle: controller.note!.options.italic == null
+                          ? FontStyle.normal
+                          : controller.note!.options.italic!
+                          ? FontStyle.italic
+                          : FontStyle.normal,
+                      decorationColor: controller.note!.options.color != null
+                          ? Color(int.parse(controller.note!.options.color!))
+                          : Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565),
+                      decoration: controller.note!.options.underLine == null
+                          ? TextDecoration.none
+                          : controller.note!.options.underLine!
+                          ? TextDecoration.underline
+                          : TextDecoration.none,
+                      color: controller.note!.options.color != null
+                          ? Color(int.parse(controller.note!.options.color!))
+                          : Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565),
+                      fontSize: context.responsive(
+                        mobile: controller.note!.options.size == null
+                            ? 20
+                            : double.parse(controller.note!.options.size!),
+                      ),
+                      height: 27 / 20,
+                      fontWeight: controller.note!.options.bold != null
+                          ? controller.note!.options.bold!
                                 ? FontWeight.bold
                                 : FontWeight.w400
-                            : FontWeight.w400),
+                          : FontWeight.w400,
+                    ),
                   ),
                   onChanged: (value) {
                     controller.note = controller.note?.copyWith(content: value);
                   },
                   decoration: InputDecoration(
-                      hintText: "enterNote".tr,
-                      border: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
-                      focusedErrorBorder: InputBorder.none,
-                      hintStyle: TextStyle(
-                        fontSize: context.responsive(mobile: 20),
-                        height: 27 / 20,
-                        fontWeight: FontWeight.w400,
-                        color: Color(Get.isDarkMode ? 0xffA9A9A9 : 0xff656565)
-                            .withOpacity(0.5),
-                      )),
+                    hintText: "enterNote".tr,
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    focusedErrorBorder: InputBorder.none,
+                    hintStyle: TextStyle(
+                      fontSize: context.responsive(mobile: 20),
+                      height: 27 / 20,
+                      fontWeight: FontWeight.w400,
+                      color: Color(
+                        Get.isDarkMode ? 0xffA9A9A9 : 0xff656565,
+                      ).withValues(alpha: 0.5),
+                    ),
+                  ),
                 )
               : const SizedBox.shrink();
-        }));
+        },
+      ),
+    );
   }
 }
